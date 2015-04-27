@@ -1,0 +1,30 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "No sexto episódio da série AngularJS, nós vamos falar sobre como integrar com o back-end por AJAX, utilizando o serviço $http.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rodrigobranas/youtube"
+  },
+  "keywords": [
+    "Angularjs",
+    "youtube",
+    "learningcode",
+    "javascript",
+    "express",
+    "node"
+  ],
+  "dependencies": {
+    "express": "^3.x"
+  }
+  "author": "Rodrigo Branas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rodrigobranas/youtube/issues"
+  },
+  "homepage": "https://github.com/rodrigobranas/youtube"
+}
