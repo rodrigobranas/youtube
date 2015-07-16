@@ -1,0 +1,31 @@
+<html ng-app="listaTelefonica">
+<head>
+	<meta charset="UTF-8">
+	<title>Lista Telefonica</title>
+	<link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/app.css">
+	<link rel="stylesheet" type="text/css" href="css/ui.css">
+	<script src="lib/angular/angular.js"></script>
+	<script src="lib/angular/angular-route.js"></script>
+	<script src="lib/angular/angular-messages.js"></script>
+	<script src="lib/serialGenerator/serialGenerator.js"></script>
+	<script src="lib/ui/ui.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/controllers/listaTelefonicaCtrl.js"></script>
+	<script src="js/controllers/novoContatoCtrl.js"></script>
+	<script src="js/controllers/detalhesContatoCtrl.js"></script>
+	<script src="js/services/contatosAPIService.js"></script>
+	<script src="js/services/operadorasAPIService.js"></script>
+	<script src="js/config/serialGeneratorConfig.js"></script>
+	<script src="js/config/routeConfig.js"></script>
+	<script src="js/value/configValue.js"></script>
+	<script src="js/filters/nameFilter.js"></script>
+	<script src="js/filters/ellipsisFilter.js"></script>
+	<script src="js/directives/uiAlertDirective.js"></script>
+	<script src="js/directives/uiDateDirective.js"></script>
+</head>
+<body>
+	<div ng-view></div>
+	<div ng-include="'view/footer.html'"></div>
+</body>
+</html>
