@@ -24,7 +24,13 @@ if(!empty($post)){
 }
 
 if(isset($_COOKIE['api_contatos'])){
-	$contatos = array_merge($contatos, unserialize($_COOKIE['api_contatos']));
+	$array_contatos = unserialize($_COOKIE['api_contatos']);
+	foreach($array_contatos as $contato){
+		$contato['data'] = $data;
+		$cookie[] = $contato;
+	}
+	setcookie('api_contatos', serialize($cookie));
+	$contatos = array_merge($contatos, $cookie);
 }
 
 echo json_encode($contatos);
