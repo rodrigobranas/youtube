@@ -21,9 +21,7 @@ if(!empty($post)){
 	$array_contatos = unserialize($_COOKIE['api_contatos']);
 	$array_contatos[] = $contato;
 	setcookie('api_contatos', serialize($array_contatos));
-}
-
-if(isset($_COOKIE['api_contatos'])){
+} else if(isset($_COOKIE['api_contatos'])){
 	$array_contatos = unserialize($_COOKIE['api_contatos']);
 	foreach($array_contatos as $contato){
 		$contato['data'] = $data;
