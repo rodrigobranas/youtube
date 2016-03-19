@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="photos">
+<head>
+	<title>Photos</title>
+	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="bower_components/font-awesome/css/font-awesome.css">
+	<script src="bower_components/angular/angular.js"></script>
+	<script>
+	  angular.module("photos", []);
+	  angular.module("photos").controller("albumCtrl", function ($scope, $http, $timeout) {
+        $http.get("http://localhost:3000/photos").then(function (response) {
+        	$scope.photos = response.data;
+        	$scope.photos.forEach(function (photo) {
+        		photo.loading = true;
+        		$http.get("http://localhost:3000/photos/1").then(function (response) {
+        			photo.data = response.data.data;
+        			photo.checksum = response.data.checksum;
+        			$timeout(function () {
+        				photo.loading = false;        				
+        			}, 1000);
+        		});
+        	});
+        });
+	  });
+	</script>
+	<style>
+		body {
+			background-color: #EEE;
+		}
+		.main {
+			width: 80%;
+			margin-top: 50px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	</style>
+</head>
+<body ng-controller="albumCtrl">
+	<div class="main">
+		<h1 class="text-center"><span class="fa fa-camera"></span> Photos</h1>
+		<br/>
+		<div ng-style="{'background-image': 'url(' + photo.data + ')'}" class="text-center panel panel-body panel-default col-md-6" style="background-size: cover; min-height: 400px;" ng-repeat="photo in photos">
+			<h4 ng-show="photo.loading" class="text-center">{{photo.filename}}</h4>
+			<h4 ng-show="!photo.loading" class="text-center">{{photo.checksum}}</h4>
+			<span ng-show="photo.loading" class="fa fa-refresh fa-spin fa-5x" style="margin-top: 150px;"></span>
+		</div>
+	</div>
+</body>
+</html>

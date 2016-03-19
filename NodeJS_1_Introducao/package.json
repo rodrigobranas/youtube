@@ -1,0 +1,26 @@
+{
+  "name": "node-presentation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "console-time.js",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "co": "^4.6.0",
+    "express": "^4.13.4",
+    "fs-promise": "^0.5.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rodrigobranas/node-presentation.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rodrigobranas/node-presentation/issues"
+  },
+  "homepage": "https://github.com/rodrigobranas/node-presentation#readme"
+}
