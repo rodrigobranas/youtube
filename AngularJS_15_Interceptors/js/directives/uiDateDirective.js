@@ -3,6 +3,7 @@ angular.module("listaTelefonica").directive("uiDate", function ($filter) {
 		require: "ngModel",
 		link: function (scope, element, attrs, ctrl) {
 			var _formatDate = function (date) {
+				if (!date) return date;
 				date = date.replace(/[^0-9]+/g, "");
 				if(date.length > 2) {
 					date = date.substring(0,2) + "/" + date.substring(2);

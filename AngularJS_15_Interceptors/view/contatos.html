@@ -12,7 +12,7 @@
 		<tr ng-class="{'selecionado negrito': contato.selecionado}" ng-repeat="contato in contatos | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
 			<td><input type="checkbox" ng-model="contato.selecionado"/></td>
 			<td>{{contato.serial}}</td>
-			<td><a href="#/detalhesContato/{{contato.id}}">{{contato.nome | name}}</a></td>
+			<td><a href="#/detalhesContato/{{contato.id + 1}}">{{contato.nome | name}}</a></td>
 			<td>{{contato.telefone}}</td>
 			<td>{{contato.operadora.nome}}</td>
 			<td>{{contato.data | date:'dd/MM/yyyy'}}</td>
