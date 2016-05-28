@@ -1,0 +1,24 @@
+{
+  "name": "AngularJS_17_Aumentando_a_Performance_Parte_2",
+  "homepage": "https://github.com/rodrigobranas/youtube",
+  "authors": [
+    "Rodrigo Branas <rodrigo.branas@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.6",
+    "angular-route": "^1.5.6",
+    "angular-i18n": "^1.5.6",
+    "angular-messages": "^1.5.6",
+    "bootstrap": "2.3.2"
+  }
+}

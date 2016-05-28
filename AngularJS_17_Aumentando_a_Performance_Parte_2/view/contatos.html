@@ -1,0 +1,32 @@
+<button class="btn btn-primary" ng-click="showImage=!showImage">Show/Hide Image</button>
+<div ng-if="showImage">
+	<img ng-src="img/agilecode.png"/>
+</div>
+<div class="jumbotron">
+	{{app}}
+	<input class="form-control" type="text" ng-model="criterioDeBusca" ng-model-options="{updateOn: 'default blur', debounce:{default: 500, blur: 0}}" placeholder="O que você está buscando?"/>
+	<table ng-show="contatos.length > 0" class="table table-striped">
+		<tr>
+			<th></th>
+			<th>Serial</th>
+			<th><a href="" ng-click="ordenarPor('nome')">Nome</a></th>
+			<th><a href="" ng-click="ordenarPor('telefone')">Telefone</a></th>
+			<th>Operadora</th>
+			<th>Preço</th>
+			<th>Data</th>
+		</tr>
+		<tr ng-class="{'selecionado negrito': contato.selecionado}" ng-repeat="contato in contatos | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao track by contato.id">
+			<td><input type="checkbox" ng-model="contato.selecionado" ng-click="verificarContatoSelecionado(contatos)"/></td>
+			<td>{{::contato.serial}}</td>
+			<td><a href="#/detalhesContato/{{contato.id}}">{{::contato.nome}}</a></td>
+			<td>{{contato.telefone}}</td>
+			<td>{{::contato.operadora.nome}}</td>
+			<td>{{::contato.operadora.precoComImposto | currency}}</td>
+			<td>{{::contato.data | date:'dd/MM/yyyy'}}</td>
+		</tr>
+	</table>
+	<button class="btn btn-primary" ng-click="reset()">Reset</button>
+	<hr/>
+	<a class="btn btn-primary btn-block" href="#/novoContato">Novo Contato</a>
+	<button class="btn btn-danger btn-block" ng-click="apagarContatos(contatos)" ng-if="hasContatoSelecionado">Apagar Contatos</button>
+</div>
