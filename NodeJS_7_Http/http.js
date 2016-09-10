@@ -14,32 +14,32 @@ var contatos = [
   {id: 3, nome: "Mariana", telefone: "9999-9999", data: new Date(), operadora: operadoras[2]}
 ];
 
-var routes = {
-	get: {},
-	post: {}
+var router = {
+	GET: {},
+	get: function (path, fn) {
+		this.GET[path] = fn;
+	},
+	POST: {},
+	post: function (path, fn) {
+		this.POST[path] = fn;
+	}
 };
 
-var router = function (req, res) {
-	var resource = req.url.replace('/', '');
-	var method = req.method.toLowerCase();
-	routes[method][resource](req, res);
-};
-
-routes.get.operadoras = function (req, res) {
+router.get('/operadoras', function (req, res) {
 	res.write(JSON.stringify(operadoras));
 	res.end();
-};
+});
 
-routes.get.contatos = function (req, res) {
+router.get('/contatos', function (req, res) {
 	res.write(JSON.stringify(contatos));
 	res.end();
-};
+});
 
-routes.post.contatos = function (req, res) {
+router.post('/contatos', function (req, res) {
 	var contato = JSON.parse(req.body);
 	contatos.push(contato);
 	res.end();
-};
+});
 
 var parseBody = function (req, cb) {
 	var body = [];
@@ -56,5 +56,7 @@ http.createServer(function (req, res) {
 	res.setHeader('Access-Control-Allow-Origin', '*');
 	res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 	if (req.method === 'OPTIONS') return res.end();
-	parseBody(req, () => router(req, res));
+	parseBody(req, function () {
+	 router[req.method][req.url](req, res);
+	});
 }).listen(3412);
