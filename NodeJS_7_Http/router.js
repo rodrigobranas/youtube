@@ -37,6 +37,7 @@ var createRouter = function (port) {
 	};
 
 	http.createServer(function (req, res) {
+		console.log(req.url);
 		handleBody(req, res, function () {
 			executeInterceptors(0, req, res);
 			if (!routes[req.method][req.url]) {

@@ -1,6 +1,6 @@
 var router = require('./router');
 
-var app = router(3412);
+var app = router(3001);
 
 var operadoras = [
   {nome: "Oi", codigo: 14, categoria: "Celular", preco: 2},
@@ -16,7 +16,7 @@ var contatos = [
 
 app.interceptor(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   next();
 });
 
@@ -38,6 +38,15 @@ app.get('/contatos', function (req, res) {
 app.post('/contatos', function (req, res) {
   var contato = req.body;
   contatos.push(JSON.parse(contato));
+  res.end();
+});
+
+app.post('/file', function (req, res) {
+  console.log(req.body);
+  res.end();
+});
+
+app.options('/file', function (req, res) {
   res.end();
 });
 
