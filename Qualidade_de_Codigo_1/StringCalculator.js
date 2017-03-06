@@ -1,3 +1,5 @@
+// O código abaixo é apenas um exemplo de como não escrever o código
+
 class StringCalculator {
 	constructor(op) {
 		this.op = op;
