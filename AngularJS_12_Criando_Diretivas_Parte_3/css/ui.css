@@ -20,6 +20,8 @@
 	border: 1px solid #CCCCCC;
 	cursor: pointer;
 	background: -moz-linear-gradient(top, #CCCCCC, #EEEEEE);
+	background: -webkit-linear-gradient(top, #CCCCCC, #EEEEEE);
+	background: linear-gradient(to bottom, #CCCCCC, #EEEEEE);
 	padding: 10px;
 	font-size: 16px;
 	font-weight: bold;
