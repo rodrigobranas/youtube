@@ -72,7 +72,7 @@
 										{{ domain.name }}
 									</div>
 									<div class="col-md text-right">
-										<a class="btn btn-info" v-bind:href="domain.url" target="_blank">
+										<a class="btn btn-info" v-bind:href="domain.checkout" target="_blank">
 											<span class="fa fa-shopping-cart"></span>
 										</a>
 									</div>
@@ -114,13 +114,6 @@ export default {
 		},
 		deleteSufix(sufix) {
 			this.sufixes.splice(this.sufixes.indexOf(sufix), 1);
-		},
-		encode(domain) {
-			const encodedDomain = [];
-			for (const char of domain) {
-				encodedDomain.push(String.fromCharCode(char.charCodeAt(0) - 47));
-			}
-			return encodedDomain.join("");
 		}
 	},
 	computed: {
@@ -130,11 +123,12 @@ export default {
 			for (const prefix of this.prefixes) {
 				for (const sufix of this.sufixes) {
 					const name = prefix + sufix;
-					const token = `D=5l${this.encode(name.toLowerCase())}UE=5l]4@>]3C`;
-					const url = `https://www.hostgator.com.br/registro-de-dominio?token=${token}`;
+					const url = name.toLowerCase();
+					const checkout = `https://checkout.hostgator.com.br/?a=add&sld=${url}&tld=.com.br`;
 					const domain = {
 						name,
-						url
+						url,
+						checkout
 					};
 					domains.push(domain);
 				}
