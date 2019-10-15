@@ -125,12 +125,10 @@ export default {
 					const name = prefix + sufix;
 					const url = name.toLowerCase();
 					const checkout = `https://checkout.hostgator.com.br/?a=add&sld=${url}&tld=.com.br`;
-					const domain = {
+					domains.push({
 						name,
-						url,
 						checkout
-					};
-					domains.push(domain);
+					});
 				}
 			}
 			return domains;
