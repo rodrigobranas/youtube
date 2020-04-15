@@ -58,7 +58,7 @@ import ShareButtonPrint from "./5/ShareButtonPrint";
 import DOMEventHandler from "./5/DOMEventHandler";
 import MockEventHandler from "./5/MockEventHandler";
 
-const eventHandler = new MockEventHandler();
+const eventHandler = new DOMEventHandler();
 
 const shareButtonTwitter = new ShareButtonTwitter(eventHandler, ".btn-twitter", "https://www.youtube.com/rodrigobranas");
 shareButtonTwitter.bind();
