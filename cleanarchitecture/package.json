@@ -1,0 +1,19 @@
+{
+  "name": "cleanarchitecture",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/.bin/jest --env node --detectOpenHandles"
+  },
+  "author": "",
+  "type": "module",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/hapi": "^20.1.1",
+    "axios": "^0.21.1",
+    "express": "^4.17.1",
+    "jest": "^26.6.3",
+    "pg-promise": "^10.9.5"
+  }
+}
