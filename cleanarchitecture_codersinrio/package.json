@@ -1,0 +1,17 @@
+{
+  "name": "cleanarchitecture_codersinrio_",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "type": "module",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/hapi": "^20.1.2",
+    "express": "^4.17.1",
+    "pg-promise": "^10.10.1"
+  }
+}
